@@ -1,106 +1,185 @@
 <!DOCTYPE html> 
 <html> 
-<!-- The following code has been developed by students and/or researchers.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, HRI, and The University of Texas system are not liable for anything related to this code.
- 
+<!-- 
+The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
+
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
- 
+
 Authors in chronological order of contribution:
-Author 1
-Author 2
- 
+Grace Nguyen
+
 Further Information:
-https://fri.cns.utexas.edu/community-outreach/high-school-research-initiative
- 
+http://cns.utexas.edu/fri
+
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
- 
+
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+The goal of this code is to make a simple fish on the canvas by using basic shapes, arcs, and lines.
+
 Known Issues:
-blah, blah, blah, blah
+The fish is very simple and only meant for a beginner canvas project.
 
 References:	
 https://www.w3schools.com/w3css/default.asp
-https://stackoverflow.com/questions/23104582/scaling-an-image-to-fit-on-canvas
-https://cns.utexas.edu/events/research-learning/luxart-microbial-art-workshop	
 -->
 	
-   <head> 
-      <title>HTML5-Canvas</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
+<head> 
+  <title>HTML5-Canvas</title>  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="w3.css">
+  <link rel="stylesheet" href="w3-colors-flat.css">
 
+  <style>
+    /*
+      This CSS adds a border around the canvas.
+      The border helps me see the canvas area better.
+    */
+    canvas {
+      border: 2px solid black;
+    }
+  </style>
+</head> 
 
 <script>
-var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-//alert("This file last modified " + docMod); // generates alert box with last modified time stamp. un-comment out this entire line if you want to use.
-console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+var docMod = document.lastModified; 
+console.log("This file last modified " + docMod); 
+
+/*
+  This function draws my fish.
+  It uses simple canvas shapes and lines.
+*/
+function drawFish() {
+  var a_canvas = document.getElementById('a'); 
+  var a_context = a_canvas.getContext('2d'); 
+
+  /*
+    This draws the fish body.
+    I used a circle shape with arc.
+  */
+  a_context.beginPath();
+  a_context.fillStyle = "orange";
+  a_context.arc(150, 100, 40, 0, 2 * Math.PI);
+  a_context.fill();
+  a_context.stroke();
+
+  /*
+    This draws the fish tail.
+    I used lines to make a triangle.
+  */
+  a_context.beginPath();
+  a_context.moveTo(110, 100);
+  a_context.lineTo(70, 70);
+  a_context.lineTo(70, 130);
+  a_context.lineTo(110, 100);
+  a_context.fillStyle = "orange";
+  a_context.fill();
+  a_context.stroke();
+
+  /*
+    This draws the top fin.
+    I used lines to make another triangle.
+  */
+  a_context.beginPath();
+  a_context.moveTo(145, 65);
+  a_context.lineTo(165, 35);
+  a_context.lineTo(185, 70);
+  a_context.lineTo(145, 65);
+  a_context.fillStyle = "gold";
+  a_context.fill();
+  a_context.stroke();
+
+  /*
+    This draws the eye.
+    I used a small white circle.
+  */
+  a_context.beginPath();
+  a_context.fillStyle = "white";
+  a_context.arc(170, 90, 8, 0, 2 * Math.PI);
+  a_context.fill();
+  a_context.stroke();
+
+  /*
+    This draws the inside of the eye.
+    I used a smaller black circle.
+  */
+  a_context.beginPath();
+  a_context.fillStyle = "black";
+  a_context.arc(172, 92, 3, 0, 2 * Math.PI);
+  a_context.fill();
+
+  /*
+    This draws the mouth.
+    I used one small line.
+  */
+  a_context.beginPath();
+  a_context.moveTo(182, 110);
+  a_context.lineTo(195, 115);
+  a_context.stroke();
+
+  /*
+    These are bubbles.
+    I used more circles to add detail.
+  */
+  a_context.beginPath();
+  a_context.arc(240, 70, 8, 0, 2 * Math.PI);
+  a_context.stroke();
+
+  a_context.beginPath();
+  a_context.arc(255, 45, 12, 0, 2 * Math.PI);
+  a_context.stroke();
+}
+
+/*
+  This function writes my name on the canvas.
+*/
+function my_name() {
+  var a_canvas = document.getElementById('a'); 
+  var a_context = a_canvas.getContext('2d'); 
+  a_context.font = "20px Times New Roman"; 
+  a_context.fillStyle = "#000000"; 
+  a_context.fillText("Grace", 10, 180); 
+}
+
+/*
+  This function clears the canvas.
+*/
+function clear_canvas() {
+  var a_canvas = document.getElementById('a'); 
+  a_canvas.width = a_canvas.width; 
+}
 </script>
 
-
-<style>	
-
-</style>
-
 <body>
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>Freestyle-Canvas</h1>
-</div>
-	
-<div id="content" class="w3-container">
-	<p>
-	<br>	
-    <canvas id="myCanvas" width=360 height=450 style="border:1px solid #d3d3d3;"></canvas>
-      
-	<script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
-				
-		var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
+  <div id="header" class="w3-container w3-flat-carrot">
+    <h1>HTML5-Canvas</h1>
+  </div>
 
-context.clearRect(0, 0, canvas.width, canvas.height);
+  <div id="content" class="w3-container">
+    <p>This is my freestyle canvas app.</p>
+    <p>I used simple shapes, arcs, and lines to draw a fish.</p>	 
+    <p>This code is only for a class canvas project.</p>
+  </div>
 
+  <!-- 
+    This is the canvas.
+    This is where my fish drawing will appear.
+  -->
+  <canvas id="a" width="300" height="190"></canvas> 
 
-  // --- parameters ---
-  const cx = canvas.width / 2;
-  const cy = canvas.height / 2;
-  const scale = 120;
-  const lineWidthT = 6;
+  <p>Click the buttons below to create my fish art.</p>
 
-  // --- draw the Letter U ---
-  context.strokeStyle = "#BF5700"; // burnt orange
-  context.lineWidth = 10;
-  context.beginPath();
-  context.moveTo(cx - scale / 2, cy - scale / 1.4); // left vertical
-  context.lineTo(cx - scale / 2, cy + scale / 2);   // down
-  context.lineTo(cx + scale / 2, cy + scale / 2);   // bottom flat
-  context.lineTo(cx + scale / 2, cy - scale / 1.4); // up
-  context.stroke();
+  <!--
+    These buttons call the JavaScript functions.
+  -->
+  <a onclick="drawFish();" class="w3-btn w3-grey w3-round">Draw Fish</a>
+  <a onclick="my_name();" class="w3-btn w3-grey w3-round">Write Name</a>
+  <a onclick="clear_canvas();" class="w3-btn w3-grey w3-round">Clear Canvas</a>
 
-  // --- draw the T nested inside ---
-  context.beginPath();
-  // top bar of T
-  context.moveTo(cx - scale / 1.2, cy - scale / 4.2);
-  context.lineTo(cx + scale / 1.2, cy - scale / 4.2);
-  // vertical stem of T
-  context.moveTo(cx, cy - scale / 4.2);
-  context.lineTo(cx, cy + scale / 1);
-  context.stroke();
-    </script>
-		
-	</p>
-</div>
-	
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
-
+  <footer class="w3-bottom w3-container w3-flat-carrot">
+    <p>DIY!</p>
+  </footer>
 </body>
 </html>
