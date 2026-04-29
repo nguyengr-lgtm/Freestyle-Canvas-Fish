@@ -1,38 +1,39 @@
 <!DOCTYPE html> 
 <html> 
-<!-- 
-The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
-
+<!-- The following code has been developed by students and/or researchers.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, HRI, and The University of Texas system are not liable for anything related to this code.
+ 
 THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
-
+ 
+ 
 Authors in chronological order of contribution:
 Grace Nguyen
-
+ 
 Further Information:
-http://cns.utexas.edu/fri
-
+https://fri.cns.utexas.edu/community-outreach/high-school-research-initiative
+ 
 Research Educator:
 Timothy Riedel
 triedel@utexas.edu
-
+ 
 Brief Description of Goal of Code:
 The goal of this code is to make a simple fish on the canvas by using basic shapes, arcs, and lines.
-
+ 
 Known Issues:
 The fish is very simple and only meant for a beginner canvas project.
 
 References:	
 https://www.w3schools.com/w3css/default.asp
+https://stackoverflow.com/questions/23104582/scaling-an-image-to-fit-on-canvas
+https://cns.utexas.edu/events/research-learning/luxart-microbial-art-workshop	
 -->
 	
-<head> 
-  <title>HTML5-Canvas</title>  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="w3.css">
-  <link rel="stylesheet" href="w3-colors-flat.css">
-
-  <style>
+   <head> 
+      <title>HTML5-Canvas</title>  
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="mobile-web-app-capable" content="yes">
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" href="w3-colors-flat.css">
+      <style>
     /*
       This CSS adds a border around the canvas.
       The border helps me see the canvas area better.
@@ -41,11 +42,13 @@ https://www.w3schools.com/w3css/default.asp
       border: 2px solid black;
     }
   </style>
-</head> 
+   </head> 
+
 
 <script>
-var docMod = document.lastModified; 
-console.log("This file last modified " + docMod); 
+var docMod = document.lastModified; // loads last modified time stamp into docMod variable
+//alert("This file last modified " + docMod); // generates alert box with last modified time stamp. un-comment out this entire line if you want to use.
+console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
 
 /*
   This function draws my fish.
@@ -55,7 +58,7 @@ function drawFish() {
   var a_canvas = document.getElementById('a'); 
   var a_context = a_canvas.getContext('2d'); 
 
-  /*
+   /*
     This draws the fish body.
     I used a circle shape with arc.
   */
@@ -91,7 +94,7 @@ function drawFish() {
   a_context.fill();
   a_context.stroke();
 
-  /*
+   /*
     This draws the eye.
     I used a small white circle.
   */
@@ -101,7 +104,7 @@ function drawFish() {
   a_context.fill();
   a_context.stroke();
 
-  /*
+   /*
     This draws the inside of the eye.
     I used a smaller black circle.
   */
@@ -152,13 +155,18 @@ function clear_canvas() {
 }
 </script>
 
-<body>
-  <div id="header" class="w3-container w3-flat-carrot">
-    <h1>HTML5-Canvas</h1>
-  </div>
 
-  <div id="content" class="w3-container">
-    <p>This is my freestyle canvas app.</p>
+<style>	
+
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Freestyle-Canvas</h1>
+</div>
+	
+<div id="content" class="w3-container">
+	<p>This is my freestyle canvas app.</p>
     <p>I used simple shapes, arcs, and lines to draw a fish.</p>	 
     <p>This code is only for a class canvas project.</p>
   </div>
@@ -169,7 +177,7 @@ function clear_canvas() {
   -->
   <canvas id="a" width="300" height="190"></canvas> 
 
-  <p>Click the buttons below to create my fish art.</p>
+<p>Click the buttons below to create my fish art.</p>
 
   <!--
     These buttons call the JavaScript functions.
@@ -181,5 +189,6 @@ function clear_canvas() {
   <footer class="w3-bottom w3-container w3-flat-carrot">
     <p>DIY!</p>
   </footer>
+
 </body>
 </html>
